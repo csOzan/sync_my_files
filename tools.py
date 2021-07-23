@@ -25,5 +25,9 @@ def first_write():
 
         with open("settings.json","w") as fd:
             json.dump(paths, fd)
-        
+def reader():
+    file_name = "settings.json"
+    with open(file_name) as fd:
+        paths = json.load(fd)
+    return paths
 
