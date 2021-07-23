@@ -16,7 +16,7 @@ def initialize():
         home_path = input('Enter your home folder path')
         if(os.path.isdir(home_path) == False):
             print('The path you entered is not available')
-            continue
+            continue# add target paths too
         paths = {
             "home": home_path,
             "documents": document_path,
