@@ -2,7 +2,7 @@
 import json
 import os
 
-def first_write():
+def initialize():
     #NOTE check for directory existence
     while True:
         document_path = input('Enter your documents folder path: ')
@@ -25,9 +25,10 @@ def first_write():
 
         with open("settings.json","w") as fd:
             json.dump(paths, fd)
+        return paths
 def reader():
     file_name = "settings.json"
     with open(file_name) as fd:
         paths = json.load(fd)
     return paths
-
+os.scandir()
