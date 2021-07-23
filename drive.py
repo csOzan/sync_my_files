@@ -1,3 +1,4 @@
+#READ This code is discontinued, will be deleted in later versions
 from dirsync import sync
 
 # globals
