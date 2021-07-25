@@ -50,7 +50,7 @@ def reader():
     return paths
 def dir_scanner():
     # This function scans main directory for settings.json file
-    # It return 0 if file exists, 1 if does not exist
+    # It returns True if file exists, False if does not exist
     # I altered code from this post: https://stackoverflow.com/a/37560251
     file_name = "settings.json"
     cur_dir = os.getcwd()
@@ -58,9 +58,9 @@ def dir_scanner():
         file_list = os.listdir(cur_dir)
         parent_dir = os.path.dirname(cur_dir)
         if file_name in file_list:
-            return 0
+            return True
         else:
             if cur_dir == parent_dir:
-                return 1
+                return False
             else:
                 cur_dir = parent_dir
