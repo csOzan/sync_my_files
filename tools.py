@@ -31,4 +31,19 @@ def reader():
     with open(file_name) as fd:
         paths = json.load(fd)
     return paths
-os.scandir()
+def dir_scanner():
+    # This function scans main directory for settings.json file
+    # It return 0 if file exists, 1 if does not exist
+    # I altered code from this post: https://stackoverflow.com/a/37560251
+    file_name = "settings.json"
+    cur_dir = os.getcwd()
+    while True:
+        file_list = os.listdir(cur_dir)
+        parent_dir = os.path.dirname(cur_dir)
+        if file_name in file_list:
+            return 0
+        else:
+            if cur_dir == parent_dir:
+                return 1
+            else:
+                cur_dir = parent_dir
