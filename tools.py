@@ -5,22 +5,39 @@ import os
 def initialize():
     #NOTE check for directory existence
     while True:
-        document_path = input('Enter your documents folder path: ')
-        if(os.path.isdir(document_path) == False):
+        document_source_path = input('Enter your documents folder path at your computer: ')
+        if(os.path.isdir(document_source_path) == False):
             print('The path you entered is not available')
             continue
-        pictures_path = input('Enter your pictures folder path: ')
-        if(os.path.isdir(pictures_path) == False):
+        pictures_source_path = input('Enter your pictures folder path at your computer: ')
+        if(os.path.isdir(pictures_source_path) == False):
             print('The path you entered is not available')
             continue
-        home_path = input('Enter your home folder path')
-        if(os.path.isdir(home_path) == False):
+        home_source_path = input('Enter your home folder path at your computer')
+        if(os.path.isdir(home_source_path) == False):
             print('The path you entered is not available')
             continue# add target paths too
+
+        # target paths
+        document_target_path = input('Enter your documents folder path you want to upload: ')
+        if(os.path.isdir(document_target_path) == False):
+            print('The path you entered is not available')
+            continue
+        pictures_target_path = input('Enter your pictures folder path you want to upload: ')
+        if(os.path.isdir(pictures_target_path) == False):
+            print('The path you entered is not available')
+            continue
+        home_target_path = input('Enter your home folder path you want to upload: ')
+        if(os.path.isdir(home_target_path) == False):
+            print('The path you entered is not available')
+            continue
         paths = {
-            "home": home_path,
-            "documents": document_path,
-            "pictures" : pictures_path
+            "home_source"     : home_source_path,
+            "documents_source": document_source_path,
+            "pictures_source" : pictures_source_path,
+            "home_target"     : home_target_path,
+            "documents_target": document_target_path,
+            "pictures_target" : pictures_target_path
         }
 
         with open("settings.json","w") as fd:
