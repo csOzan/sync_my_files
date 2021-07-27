@@ -11,7 +11,7 @@ def main():
         paths = tools.initialize()
     while True:
         # move termination condition warning to first prompt 
-        sync_token = int(input("For Upload Only Enter '1'\nFor Download Only Enter '2'\nFor Complete Sync Enter '3'\nEnter '0'for quit the app"))
+        sync_token = int(input("For Upload Only Enter '1'\nFor Download Only Enter '2'\nFor Complete Sync Enter '3'\nEnter '0'for quit the app\n"))
         if (sync_token == 0):
             exit() 
         elif (sync_token == 1 or sync_token == 2 or sync_token == 3):
@@ -19,7 +19,7 @@ def main():
         else:
             print("You have entered wrong number(for exit enter 0)")
     while True:
-        which_to_sync = int(input("Enter:\n0:exit the app\n1:Documents\t2:Pictures\t3:home\t4:all"))
+        which_to_sync = int(input("Enter:\n0:exit the app\n1:Documents\t2:Pictures\t3:home\t4:all\n"))
         if(which_to_sync == 0):
             exit()
         elif(which_to_sync == 1 or which_to_sync == 2 or which_to_sync == 3 or which_to_sync == 4 or which_to_sync == 0):
