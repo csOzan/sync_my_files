@@ -5,39 +5,49 @@ import os
 def initialize():
     #NOTE check for directory existence
     while True:
-        document_source_path = input('Enter your documents folder path at your computer: ')
+        document_source_path = input('Enter your documents folder path at your computer:\t')
         if(os.path.isdir(document_source_path) == False):
             print('The path you entered is not available')
             continue
-        pictures_source_path = input('Enter your pictures folder path at your computer: ')
+        pictures_source_path = input('Enter your pictures folder path at your computer:\t')
         if(os.path.isdir(pictures_source_path) == False):
             print('The path you entered is not available')
             continue
-        home_source_path = input('Enter your home folder path at your computer')
+        home_source_path = input('Enter your home folder path at your computer:\t')
         if(os.path.isdir(home_source_path) == False):
             print('The path you entered is not available')
             continue# add target paths too
 
         # target paths
-        document_target_path = input('Enter your documents folder path you want to upload: ')
+        document_target_path = input('Enter your documents folder path you want to upload:\t')
         if(os.path.isdir(document_target_path) == False):
             print('The path you entered is not available')
             continue
-        pictures_target_path = input('Enter your pictures folder path you want to upload: ')
+        pictures_target_path = input('Enter your pictures folder path you want to upload:\t')
         if(os.path.isdir(pictures_target_path) == False):
             print('The path you entered is not available')
             continue
-        home_target_path = input('Enter your home folder path you want to upload: ')
+        home_target_path = input('Enter your home folder path you want to upload:\t')
         if(os.path.isdir(home_target_path) == False):
             print('The path you entered is not available')
             continue
+        one_click_sync =int(input('Do you wish one click sync feature?\nIf you enter 1, when you double click drive.py everything will be synced else press 0: \t'))
+        if (one_click_sync != 1 or one_click_sync != 0):
+            print('You entered wrong number, using one click sync feature')
+            one_click_sync = True
+        else:
+            if one_click_sync == 1:
+                one_click_sync == True
+            else:
+                one_click_sync = False
         paths = {
             "home_source"     : home_source_path,
             "documents_source": document_source_path,
             "pictures_source" : pictures_source_path,
             "home_target"     : home_target_path,
             "documents_target": document_target_path,
-            "pictures_target" : pictures_target_path
+            "pictures_target" : pictures_target_path,
+            "one_click_sync"  : one_click_sync
         }
 
         with open("settings.json","w") as fd:
