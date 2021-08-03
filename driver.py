@@ -1,7 +1,7 @@
 import os
 import tools
 import sync
-
+import time
 def main():
 
     settings_exist = tools.dir_scanner()
@@ -10,13 +10,22 @@ def main():
     else:
         paths = tools.initialize()
     if(paths["one_click_sync"] == True):
+        if(os.path.isdir(paths["home_target"])== False):
+            print("Drive doesnt exist")
+            time.sleep(2)
+            exit()
         sync_token = 3
         which_to_sync = 4
         sync.home(sync_token,paths["home_source"],paths["home_target"])
         sync.pictures(sync_token,paths["pictures_source"],paths["pictures_target"])
         sync.documents(sync_token,paths["documents_source"],paths["documents_target"])
+        time.sleep(2)
         exit()
     else:
+        if(os.path.isdir(paths["home_target"])== False):
+            print("Drive doesnt exist")
+            time.sleep(2)
+            exit()
         while True:
             # move termination condition warning to first prompt 
             sync_token = int(input("For Upload Only Enter '1'\nFor Download Only Enter '2'\nFor Complete Sync Enter '3'\nEnter '0'for quit the app\n"))
@@ -47,4 +56,6 @@ def main():
                 print('You have entered wrong number,(for exit enter 0)')
                 continue
             print('Restarting sync engine, press 0 for exit when prompt asked')
+            time.sleep(2)
+            
 main()
