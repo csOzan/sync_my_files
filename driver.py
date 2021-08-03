@@ -9,11 +9,8 @@ def main():
         paths = tools.reader()
     else:
         paths = tools.initialize()
+    tools.check_if_drive_exists(paths)
     if(paths["one_click_sync"] == True):
-        if(os.path.isdir(paths["home_target"])== False):
-            print("Drive doesnt exist")
-            time.sleep(2)
-            exit()
         sync_token = 3
         which_to_sync = 4
         sync.home(sync_token,paths["home_source"],paths["home_target"])
@@ -22,10 +19,6 @@ def main():
         time.sleep(2)
         exit()
     else:
-        if(os.path.isdir(paths["home_target"])== False):
-            print("Drive doesnt exist")
-            time.sleep(2)
-            exit()
         while True:
             # move termination condition warning to first prompt 
             sync_token = int(input("For Upload Only Enter '1'\nFor Download Only Enter '2'\nFor Complete Sync Enter '3'\nEnter '0'for quit the app\n"))
