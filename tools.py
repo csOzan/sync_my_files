@@ -1,7 +1,7 @@
 # JSON functions
 import json
 import os
-
+import time
 def initialize():
     #NOTE check for directory existence
     while True:
@@ -74,3 +74,9 @@ def dir_scanner():
                 return False
             else:
                 cur_dir = parent_dir
+
+def check_if_drive_exists(paths):
+    if(os.path.isdir(paths["home_target"])== False):
+                print("Drive doesnt exist")
+                time.sleep(2)
+                exit()
