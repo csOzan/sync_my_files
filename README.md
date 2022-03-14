@@ -12,3 +12,4 @@
 - A graphic interface
 - Moving files inside client and mirror the changes to target directory
 - Adding Licence to project. (Right now I don't know much about Open Source Licenses so my product is unlicensed.)
+# Git Test
